@@ -323,20 +323,20 @@ address { font-style: normal; margin-bottom: 0.6rem; }
    over the crossing red ribbon star. */
 .logo-lockup {
   position: relative;
-  width: 300px;
-  height: 250px;
-  margin: -0.4rem 0 1rem -0.6rem;
+  width: 330px;
+  height: 285px;
+  margin: -0.4rem 0 1rem -0.4rem;
 }
 .logo-lockup__star {
   position: absolute;
-  inset: 0 auto auto 12px;
-  width: 250px; height: 250px;
-  transform: rotate(-4deg);
+  top: 4px; left: 40px;
+  width: 235px; height: 235px;
+  transform: rotate(-3deg);
 }
 .logo-lockup__spark {
   position: absolute;
-  top: 10px; left: 2px;
-  width: 26px; height: 26px;
+  top: 30px; left: 30px;
+  width: 24px; height: 24px;
   opacity: 0.95;
 }
 .logo-lockup__script {
@@ -344,21 +344,22 @@ address { font-style: normal; margin-bottom: 0.6rem; }
   font-family: "Yellowtail", "Brush Script MT", cursive;
   color: var(--white);
   line-height: 1;
-  transform: rotate(-8deg);
+  transform: rotate(-9deg);
   text-shadow:
     3px 3px 0 var(--ink), -2px 2px 0 var(--ink),
     2px -2px 0 var(--ink), -2px -2px 0 var(--ink);
 }
-.logo-lockup__artistic { top: 26px; left: 26px; font-size: 4rem; }
-.logo-lockup__edge { top: 118px; left: 58px; font-size: 4.2rem; }
+.logo-lockup__artistic { top: 52px; left: 6px; font-size: 4.7rem; }
+.logo-lockup__edge { top: 156px; left: 58px; font-size: 5.1rem; }
 .logo-lockup__caps {
   position: absolute;
-  top: 104px; right: 6px;
-  font: 700 0.78rem var(--font-body);
-  letter-spacing: 0.3em;
+  top: 132px; left: 186px;
+  font: 700 0.64rem var(--font-body);
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--white);
-  line-height: 1.5;
+  line-height: 1.7;
   text-shadow: 2px 2px 0 var(--ink);
-  transform: rotate(-8deg);
+  transform: rotate(-9deg);
+  white-space: nowrap;
 }
