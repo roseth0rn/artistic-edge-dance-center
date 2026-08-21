@@ -340,3 +340,6 @@ address { font-style: normal; margin-bottom: 0.6rem; }
   line-height: 1.5;
   transform: rotate(-6deg);
 }
+
+/* Cache-resilience: cap lockup star even before styles apply */
+.logo-lockup img { max-width: 230px; max-height: 230px; }
