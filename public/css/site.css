@@ -323,20 +323,22 @@ address { font-style: normal; margin-bottom: 0.6rem; }
    over the crossing red ribbon star. */
 .logo-lockup {
   position: relative;
-  width: 330px;
-  height: 285px;
-  margin: -0.4rem 0 1rem -0.4rem;
+  display: block;
+  font-size: 16px; /* scale knob: everything below is em */
+  width: 20.6em;
+  height: 17.8em;
+  margin-bottom: 0.6rem;
 }
 .logo-lockup__star {
   position: absolute;
-  top: 4px; left: 40px;
-  width: 235px; height: 235px;
+  top: 0.25em; left: 2.5em;
+  width: 14.7em; height: 14.7em;
   transform: rotate(-3deg);
 }
 .logo-lockup__spark {
   position: absolute;
-  top: 30px; left: 30px;
-  width: 24px; height: 24px;
+  top: 1.85em; left: 1.85em;
+  width: 1.5em; height: 1.5em;
   opacity: 0.95;
 }
 .logo-lockup__script {
@@ -349,12 +351,12 @@ address { font-style: normal; margin-bottom: 0.6rem; }
     3px 3px 0 var(--ink), -2px 2px 0 var(--ink),
     2px -2px 0 var(--ink), -2px -2px 0 var(--ink);
 }
-.logo-lockup__artistic { top: 52px; left: 6px; font-size: 4.7rem; }
-.logo-lockup__edge { top: 156px; left: 58px; font-size: 5.1rem; }
+.logo-lockup__artistic { top: 3.25em; left: 0.4em; font-size: 4.7em; }
+.logo-lockup__edge { top: 9.75em; left: 3.6em; font-size: 5.1em; }
 .logo-lockup__caps {
   position: absolute;
-  top: 132px; left: 186px;
-  font: 700 0.64rem var(--font-body);
+  top: 8.25em; left: 11.6em;
+  font: 700 0.64em var(--font-body);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--white);
@@ -363,3 +365,22 @@ address { font-style: normal; margin-bottom: 0.6rem; }
   transform: rotate(-9deg);
   white-space: nowrap;
 }
+
+/* Header variant: same lockup, light colorway, scaled down */
+.logo-lockup--header { font-size: 7.5px; margin-bottom: 0; }
+.logo-lockup--header .logo-lockup__script {
+  color: var(--ink);
+  text-shadow: 2px 2px 0 var(--white), -1px 1px 0 var(--white), 1px -1px 0 var(--white), -1px -1px 0 var(--white);
+}
+.logo-lockup--header .logo-lockup__caps {
+  color: var(--ink);
+  font-size: 1.05em;
+  left: 10.4em; top: 8.4em;
+  letter-spacing: 0.18em;
+  text-shadow: 1px 1px 0 var(--white);
+}
+.logo-lockup--header .logo-lockup__spark { display: none; }
+@media (max-width: 700px) { .logo-lockup--header { font-size: 6px; } }
+
+/* Cache-resilience: cap lockup star even before styles apply */
+.logo-lockup img { max-width: 235px; max-height: 235px; }
