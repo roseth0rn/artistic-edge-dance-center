@@ -1,8 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#c50000"/>
-  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#ffffff" stroke-width="3"/>
-  <path fill="#ffffff" d="M600 120 L618 169 L670 170.5 L628.5 202 L643.5 252 L600 223.5 L556.5 252 L571.5 202 L530 170.5 L582 169 Z"/>
-  <text x="600" y="360" fill="#ffffff" font-family="Georgia, serif" font-size="86" font-weight="600" text-anchor="middle" font-style="italic">Artistic Edge Dance Center</text>
-  <text x="600" y="432" fill="#ffffff" font-family="Arial, sans-serif" font-size="30" letter-spacing="6" text-anchor="middle">DANCE WITH AN EDGE</text>
-  <text x="600" y="510" fill="#ffffff" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" opacity="0.9">Ballet · Jazz · Tap · Hip Hop · Contemporary · Acro — Greenville, SC</text>
+  <rect width="1200" height="630" fill="#0c0507"/>
+  <g transform="rotate(-14 600 315)">
+    <path fill="none" stroke="#c50000" stroke-width="22" stroke-linejoin="round"
+      d="M600 60 L668 246 L866 251.5 L709 372 L766 562 L600 450 L434 562 L491 372 L334 251.5 L532 246 Z"/>
+  </g>
+  <text x="470" y="280" fill="#ffffff" font-family="'Brush Script MT','Segoe Script',cursive" font-size="120" text-anchor="middle" transform="rotate(-6 470 280)">Artistic</text>
+  <text x="560" y="410" fill="#ffffff" font-family="'Brush Script MT','Segoe Script',cursive" font-size="120" text-anchor="middle" transform="rotate(-6 560 410)">Edge</text>
+  <text x="800" y="380" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="10">DANCE</text>
+  <text x="800" y="424" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="10">CENTER</text>
+  <text x="600" y="560" fill="#e3a49f" font-family="Arial, sans-serif" font-size="22" letter-spacing="6" text-anchor="middle">GREENVILLE, SC · DANCE WITH AN EDGE</text>
 </svg>

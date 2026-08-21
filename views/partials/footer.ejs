@@ -2,8 +2,14 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
-      <img src="/images/logo-flat.svg" alt="" width="96" height="96" style="margin-bottom:0.8rem">
-      <p class="footer-brand">Artistic Edge <em>Dance Center</em></p>
+      <div class="logo-lockup" role="img" aria-label="Artistic Edge Dance Center">
+        <img class="logo-lockup__star" src="/images/star-outline.svg" alt="">
+        <span class="logo-lockup__script">Artistic</span>
+        <span class="logo-lockup__row">
+          <span class="logo-lockup__script logo-lockup__script--indent">Edge</span>
+          <span class="logo-lockup__caps">Dance<br>Center</span>
+        </span>
+      </div>
       <p class="muted"><%= STUDIO.tagline %></p>
       <address class="muted">
         <a href="<%= STUDIO.maps %>"><%= STUDIO.address %>, <%= STUDIO.cityStateZip %></a><br>

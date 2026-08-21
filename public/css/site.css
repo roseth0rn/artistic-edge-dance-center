@@ -306,3 +306,37 @@ details > div { padding: 0 1.1rem 1rem; color: var(--muted); }
 .footer-legal { display: flex; justify-content: space-between; padding-top: 1rem; font-size: 0.8rem; }
 address { font-style: normal; margin-bottom: 0.6rem; }
 .social a { text-decoration: none; }
+
+/* ── Logo lockup (flat take on the studio's script-over-star mark) ───── */
+.brand__name--script {
+  font-family: "Yellowtail", "Brush Script MT", cursive;
+  font-weight: 400;
+  font-size: 1.55rem;
+  letter-spacing: 0.01em;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+.brand__sub { color: var(--red); font-weight: 700; }
+
+.logo-lockup { position: relative; display: inline-block; padding: 1.6rem 2.2rem 1.4rem; margin: -0.6rem 0 0.6rem -1rem; }
+.logo-lockup__star { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0.95; }
+.logo-lockup__script {
+  position: relative;
+  display: block;
+  font-family: "Yellowtail", "Brush Script MT", cursive;
+  font-size: 2.6rem;
+  line-height: 0.9;
+  color: var(--white);
+  transform: rotate(-6deg);
+  text-shadow: 0 2px 0 rgba(197, 0, 0, 0.55);
+}
+.logo-lockup__script--indent { margin-left: 1.1ch; }
+.logo-lockup__row { position: relative; display: flex; align-items: center; gap: 0.9rem; }
+.logo-lockup__caps {
+  font: 700 0.72rem var(--font-body);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #ffb3ad;
+  line-height: 1.5;
+  transform: rotate(-6deg);
+}

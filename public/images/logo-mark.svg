@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="AEDC star">
-  <circle cx="50" cy="50" r="50" fill="#c50000"/>
-  <path fill="#ffffff" d="M50 18 L57.8 39.3 L80.5 39.9 L62.5 53.7 L69 75.5 L50 63 L31 75.5 L37.5 53.7 L19.5 39.9 L42.2 39.3 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="AEDC star">
+  <g transform="rotate(-14 100 100)">
+    <path fill="#c50000" d="M100 22 L119.5 75.2 L176 76.7 L131.2 111.2 L147.4 165.5 L100 133.5 L52.6 165.5 L68.8 111.2 L24 76.7 L80.5 75.2 Z"/>
+  </g>
 </svg>
