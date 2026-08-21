@@ -11,6 +11,7 @@ const { STUDIO, ANNOUNCEMENT } = require("./src/data/studio");
 const { photo, classPhoto, PHOTOS } = require("./src/data/photos");
 
 const app = express();
+const ASSET_V = require("./package.json").version;
 const PORT = Number(process.env.PORT || 3000);
 const IS_PROD = process.env.NODE_ENV === "production";
 
@@ -51,6 +52,7 @@ app.use(
 // Locals available to every template
 app.use((req, res, next) => {
   res.locals.STUDIO = STUDIO;
+  res.locals.ASSET_V = ASSET_V;
   res.locals.ANNOUNCEMENT = ANNOUNCEMENT;
   res.locals.photo = photo;
   res.locals.classPhoto = classPhoto;

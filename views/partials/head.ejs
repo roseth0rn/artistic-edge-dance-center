@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= typeof title !== 'undefined' && title ? title + ' · ' + STUDIO.name : STUDIO.name + ' — ' + STUDIO.tagline %></title>
   <meta name="description" content="<%= STUDIO.name %> in <%= STUDIO.city %> — ballet, jazz, tap, hip hop, contemporary, and acro for ages 2 to adult. <%= STUDIO.tagline %>">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.svg?v=<%= ASSET_V %>" type="image/svg+xml">
   <meta property="og:title" content="<%= STUDIO.name %>">
   <meta property="og:description" content="<%= STUDIO.tagline %> Classes for ages 2 to adult in <%= STUDIO.city %>.">
   <meta property="og:image" content="/og.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/site.css?v=<%= ASSET_V %>">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
