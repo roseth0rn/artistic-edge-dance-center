@@ -1,0 +1,23 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Season ' + STUDIO.season, heroTitle: 'Classes for every <em>dancer</em>', lede: 'Filter by style or age. Placement help is one phone call away: ' + STUDIO.phone + '.' }) %>
+<section class="section section--tight">
+  <div class="wrap">
+    <p class="meta-row" style="gap:0.5rem">
+      <a class="badge <%= !activeStyle && !activeBand ? 'badge--wine' : '' %>" href="/classes" style="text-decoration:none">All</a>
+      <% for (const s of styles) { %>
+        <a class="badge <%= activeStyle === s ? 'badge--wine' : '' %>" href="/classes?style=<%= encodeURIComponent(s) %>" style="text-decoration:none"><%= s %></a>
+      <% } %>
+      <% for (const b of ageBands) { %>
+        <a class="badge <%= activeBand && activeBand.id === b.id ? 'badge--wine' : '' %>" href="/classes?ages=<%= b.id %>" style="text-decoration:none"><%= b.label %></a>
+      <% } %>
+    </p>
+    <% if (!classes.length) { %>
+      <div class="card"><h3>No classes match that filter</h3><p class="muted">Try a wider age range, or call the office — placement is our favorite puzzle.</p></div>
+    <% } %>
+    <div class="grid grid--3" style="margin-top:1.2rem">
+      <% for (const klass of classes) { %><%- include('partials/class-card', { klass, spotsLeft }) %><% } %>
+    </div>
+  </div>
+</section>
+<%- include('partials/footer') %>

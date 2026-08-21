@@ -1,0 +1,22 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Parent portal', heroTitle: mode === 'login' ? 'Sign <em>in</em>' : 'Create your <em>account</em>', lede: 'Waivers, enrollment, tuition estimates, and your household calendar live here.' }) %>
+<section class="section section--tight">
+  <div class="wrap" style="max-width:460px">
+    <% if (error) { %><div class="alert alert--err"><%= error %></div><% } %>
+    <form class="form" method="post" action="<%= mode === 'login' ? '/login' : '/register' %>">
+      <input type="hidden" name="next" value="<%= next %>">
+      <% if (mode === 'register') { %>
+        <div class="field"><label for="a-name">Your name *</label><input id="a-name" name="name" required value="<%= form.name || '' %>"></div>
+        <div class="field"><label for="a-phone">Phone</label><input id="a-phone" name="phone" value="<%= form.phone || '' %>"></div>
+      <% } %>
+      <div class="field"><label for="a-email">Email *</label><input id="a-email" type="email" name="email" required value="<%= form.email || '' %>"></div>
+      <div class="field"><label for="a-pass">Password *</label><input id="a-pass" type="password" name="password" required minlength="8" autocomplete="<%= mode === 'login' ? 'current-password' : 'new-password' %>"></div>
+      <button class="btn" type="submit"><%= mode === 'login' ? 'Sign in' : 'Create account' %></button>
+    </form>
+    <p class="form-note" style="margin-top:1rem">
+      <% if (mode === 'login') { %>New to the portal? <a href="/register">Create an account</a>.<% } else { %>Already registered? <a href="/login">Sign in</a>.<% } %>
+    </p>
+  </div>
+</section>
+<%- include('partials/footer') %>

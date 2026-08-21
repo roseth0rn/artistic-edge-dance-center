@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" role="img" aria-label="Artistic Edge Dance Center">
+  <defs>
+    <path id="aedc-arc-top" d="M 42 148 A 98 98 0 0 1 238 148"/>
+    <path id="aedc-arc-bot" d="M 54 152 A 86 86 0 0 0 226 152"/>
+  </defs>
+  <circle cx="140" cy="140" r="140" fill="#10261f"/>
+  <circle cx="140" cy="140" r="132" fill="none" stroke="#c6a45a" stroke-width="3.2"/>
+  <circle cx="140" cy="140" r="124" fill="none" stroke="#c6a45a" stroke-width="1"/>
+  <text fill="#c6a45a" font-family="Georgia, 'Times New Roman', serif" font-size="21" font-weight="700" letter-spacing="3.4">
+    <textPath href="#aedc-arc-top" startOffset="50%" text-anchor="middle">ARTISTIC EDGE</textPath>
+  </text>
+  <path fill="#c6a45a" d="M140 92 L146.2 111.2 H166.4 L150.1 123.1 L156.3 142.4 L140 130.6 L123.7 142.4 L129.9 123.1 L113.6 111.2 H133.8 Z"/>
+  <text x="140" y="166" fill="#c6a45a" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="700" letter-spacing="3.2" text-anchor="middle">DANCE CENTER</text>
+  <text fill="#c6a45a" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="600" letter-spacing="2.4">
+    <textPath href="#aedc-arc-bot" startOffset="50%" text-anchor="middle">GREENVILLE, SC</textPath>
+  </text>
+</svg>

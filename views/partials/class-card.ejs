@@ -1,0 +1,14 @@
+<article class="card">
+  <img class="card__img" src="<%= klass.image %>" alt="">
+  <p>
+    <span class="badge badge--wine"><%= klass.style %></span>
+    <span class="badge"><%= klass.level %></span>
+    <% if (spotsLeft(klass) === 0) { %><span class="badge badge--full">Waitlist</span><% } %>
+  </p>
+  <h3><a href="/classes/<%= klass.slug %>"><%= klass.name %></a></h3>
+  <div class="meta-row">
+    <span>Ages <%= klass.ages %></span><span><%= klass.day %> <%= klass.time %></span>
+    <span><%= klass.minutes %> min</span><span>Studio <%= klass.studio %></span>
+  </div>
+  <p class="muted"><%= klass.blurb %></p>
+</article>

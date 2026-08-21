@@ -1,0 +1,31 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'One complimentary trial per student', heroTitle: 'Book a <em>free trial</em>', lede: 'School-year season only. Sign waivers in the portal before class day; additional trials are $20 and credit toward tuition if you enroll.' }) %>
+<section class="section section--tight">
+  <div class="wrap" style="max-width:640px">
+    <% if (sent) { %><div class="alert alert--ok">Trial requested — the office will confirm your spot by email before class day.</div><% } %>
+    <% if (error) { %><div class="alert alert--err"><%= error %></div><% } %>
+    <form class="form" method="post" action="/trial">
+      <div class="field-row">
+        <div class="field"><label for="t-parent">Parent name *</label><input id="t-parent" name="parent_name" required value="<%= form.parent_name || '' %>"></div>
+        <div class="field"><label for="t-email">Email *</label><input id="t-email" type="email" name="email" required value="<%= form.email || '' %>"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="t-dname">Dancer's name *</label><input id="t-dname" name="dancer_name" required value="<%= form.dancer_name || '' %>"></div>
+        <div class="field"><label for="t-dage">Dancer's age *</label><input id="t-dage" type="number" min="2" max="99" name="dancer_age" required value="<%= form.dancer_age || '' %>"></div>
+      </div>
+      <div class="field">
+        <label for="t-class">Class *</label>
+        <select id="t-class" name="class_slug" required>
+          <% for (const c of classes) { %>
+            <option value="<%= c.slug %>" <%= form.class_slug === c.slug ? 'selected' : '' %>><%= c.name %> — <%= c.day %> <%= c.time %> (ages <%= c.ages %>)</option>
+          <% } %>
+        </select>
+      </div>
+      <div class="field"><label for="t-notes">Anything we should know?</label><textarea id="t-notes" name="notes"><%= form.notes || '' %></textarea></div>
+      <button class="btn" type="submit">Request my trial</button>
+      <p class="form-note">Phone optional: <input name="phone" value="<%= form.phone || '' %>" style="border:1px solid var(--border);border-radius:6px;padding:0.3rem 0.5rem;font:inherit"></p>
+    </form>
+  </div>
+</section>
+<%- include('partials/footer') %>

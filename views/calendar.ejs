@@ -1,0 +1,20 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Season ' + STUDIO.season, heroTitle: 'Season <em>calendar</em>', lede: 'Closures follow Greenville County Schools for major breaks. Weather closures post by email, portal, and Facebook.' }) %>
+<section class="section section--tight">
+  <div class="wrap">
+    <ul class="timeline">
+      <% for (const e of events) { %>
+        <li>
+          <time><%= e.date %><%= e.endDate ? ' →' : '' %><% if (e.endDate) { %><br><%= e.endDate %><% } %></time>
+          <div>
+            <strong><%= e.title %></strong> <span class="badge <%= e.category === 'Performance' ? 'badge--wine' : '' %>"><%= e.category %></span>
+            <% if (e.time) { %><span class="muted"> · <%= e.time %></span><% } %>
+            <br><span class="muted"><%= e.detail %></span>
+          </div>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</section>
+<%- include('partials/footer') %>

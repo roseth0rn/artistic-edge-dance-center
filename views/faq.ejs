@@ -1,0 +1,12 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Ask the front desk anything', heroTitle: 'Questions, <em>answered</em>', lede: 'The things every dance family asks in year one — from shoes to pointe.' }) %>
+<section class="section section--tight">
+  <div class="wrap" style="max-width:760px">
+    <% for (const f of faqs) { %>
+      <details><summary><%= f.q %></summary><div><p><%= f.a %></p></div></details>
+    <% } %>
+    <p style="margin-top:1.5rem">Still curious? <a href="/contact">Send the office a note</a> or call <a href="<%= STUDIO.phoneHref %>"><%= STUDIO.phone %></a>.</p>
+  </div>
+</section>
+<%- include('partials/footer') %>

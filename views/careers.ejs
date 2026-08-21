@@ -1,0 +1,19 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Working artists welcome', heroTitle: 'Teach <em>with us</em>', lede: 'We hire instructors who correct with care and remember every dancer\'s name by week two.' }) %>
+<section class="section section--tight">
+  <div class="wrap" style="max-width:640px">
+    <% if (sent) { %><div class="alert alert--ok">Application received — Melanie reviews these personally and will be in touch.</div><% } %>
+    <% if (error) { %><div class="alert alert--err"><%= error %></div><% } %>
+    <form class="form" method="post" action="/careers">
+      <div class="field-row">
+        <div class="field"><label for="j-name">Name *</label><input id="j-name" name="name" required value="<%= form.name || '' %>"></div>
+        <div class="field"><label for="j-email">Email *</label><input id="j-email" type="email" name="email" required value="<%= form.email || '' %>"></div>
+      </div>
+      <div class="field"><label for="j-role">Styles you teach</label><input id="j-role" name="role" placeholder="e.g. Ballet, pointe, preschool combo" value="<%= form.role || '' %>"></div>
+      <div class="field"><label for="j-msg">Training & experience</label><textarea id="j-msg" name="message"><%= form.message || '' %></textarea></div>
+      <button class="btn" type="submit">Apply to teach</button>
+    </form>
+  </div>
+</section>
+<%- include('partials/footer') %>

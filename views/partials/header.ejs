@@ -1,0 +1,31 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap site-header__row">
+    <a class="brand" href="/">
+      <img src="/images/logo-transparent.svg" alt="" width="44" height="44">
+      <span class="brand__text">
+        <span class="brand__name">Artistic Edge</span>
+        <span class="brand__sub">Dance Center · <%= STUDIO.city %></span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav__links" id="nav-links">
+        <% const links = [["/classes","Classes"],["/schedule","Schedule"],["/tuition","Tuition"],["/company","Company"],["/faculty","Faculty"],["/calendar","Calendar"],["/news","News"],["/faq","FAQ"]]; %>
+        <% for (const [href, label] of links) { %>
+          <li><a href="<%= href %>" <%= path.startsWith(href) ? 'aria-current="page"' : '' %>><%= label %></a></li>
+        <% } %>
+        <li class="nav__cta"><a class="btn btn--small" href="/trial">Free trial</a></li>
+        <% if (user) { %>
+          <li><a class="btn btn--small btn--ghost" href="/portal">Portal</a></li>
+        <% } else { %>
+          <li><a class="btn btn--small btn--ghost" href="/login">Sign in</a></li>
+        <% } %>
+      </ul>
+    </nav>
+  </div>
+</header>
+<% if (flash) { %>
+  <div class="flash flash--<%= flash.kind %>" role="status"><div class="wrap"><%= flash.text %></div></div>
+<% } %>
+<main id="main">

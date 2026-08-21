@@ -1,0 +1,35 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Season ' + STUDIO.seasonRange, heroTitle: 'Tuition, <em>plainly</em>', lede: 'Monthly tuition is a season installment, not a class-count invoice — short months and five-week months cost the same.' }) %>
+<section class="section section--tight">
+  <div class="wrap grid grid--2">
+    <div>
+      <h2>Recreational <em>tuition</em></h2>
+      <div class="table-wrap"><table>
+        <tr><th>Classes / week</th><th class="num">Monthly</th><th class="num">Semester</th><th class="num">Year</th></tr>
+        <% for (const row of tuition) { %>
+          <tr><td><%= row.label %></td><td class="num">$<%= row.monthly %></td><td class="num">$<%= row.semester %></td><td class="num">$<%= row.year %></td></tr>
+        <% } %>
+      </table></div>
+      <p class="form-note" style="margin-top:0.8rem">Semester and annual payment plans include a discount. Costume and performance fees are separate.</p>
+    </div>
+    <div>
+      <h2>Company <em>fees</em></h2>
+      <div class="table-wrap"><table>
+        <tr><th>Track</th><th class="num">Year</th><th class="num">Monthly</th></tr>
+        <tr><td>Elite — new member</td><td class="num">$<%= companyFees.eliteNew.year %></td><td class="num">$<%= companyFees.eliteNew.monthly %></td></tr>
+        <tr><td>Elite — returning</td><td class="num">$<%= companyFees.eliteReturn.year %></td><td class="num">$<%= companyFees.eliteReturn.monthly %></td></tr>
+        <tr><td>Mini — new member</td><td class="num">$<%= companyFees.miniNew.year %></td><td class="num">$<%= companyFees.miniNew.monthly %></td></tr>
+        <tr><td>Mini — returning</td><td class="num">$<%= companyFees.miniReturn.year %></td><td class="num">$<%= companyFees.miniReturn.monthly %></td></tr>
+        <tr><td>Additional style</td><td class="num">$<%= companyFees.additional.year %></td><td class="num">$<%= companyFees.additional.monthly %></td></tr>
+        <tr><td>Solo</td><td class="num">$<%= companyFees.solo.year %></td><td class="num">$<%= companyFees.solo.monthly %></td></tr>
+        <tr><td>Duo / trio</td><td class="num">$<%= companyFees.trio.year %></td><td class="num">$<%= companyFees.trio.monthly %></td></tr>
+      </table></div>
+      <p class="form-note" style="margin-top:0.8rem">Company fees do not include required technique classes, summer intensive ($<%= companyFees.summerChoreo %> choreography), or Nationals. Jacket: $<%= companyFees.jacket %> (included for new members).</p>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:2rem">
+    <p><a class="btn" href="/portal">Estimate your household tuition in the portal</a></p>
+  </div>
+</section>
+<%- include('partials/footer') %>

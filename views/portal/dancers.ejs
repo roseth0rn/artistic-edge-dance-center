@@ -1,0 +1,35 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<%- include('../partials/page-hero', { eyebrow: 'Household', heroTitle: 'My <em>dancers</em>', lede: null }) %>
+<section class="section section--tight"><div class="wrap">
+  <%- include('../partials/portal-nav') %>
+  <div class="grid grid--2">
+    <div>
+      <% if (!dancers.length) { %><p class="muted">No dancers yet — add your first below.</p><% } %>
+      <% for (const d of dancers) { %>
+        <div class="card card--flat" style="margin-bottom:1rem">
+          <h3><%= d.name %></h3>
+          <p class="muted"><%= d.birth_year ? 'Born ' + d.birth_year + ' · about age ' + (new Date().getFullYear() - d.birth_year) : '' %><%= d.notes ? ' · ' + d.notes : '' %></p>
+          <% if (d.classes.length) { %>
+            <p class="meta-row"><% for (const c of d.classes) { %><span class="badge"><%= c.name %> · <%= c.day %></span><% } %></p>
+          <% } else { %>
+            <p class="muted">Not enrolled yet — <a href="/portal/enroll?dancer=<%= d.id %>">find a class</a>.</p>
+          <% } %>
+          <form class="inline-form" method="post" action="/portal/dancers/<%= d.id %>/remove" onsubmit="return confirm('Remove <%= d.name %> and their enrollments?')">
+            <button class="link-btn" type="submit">Remove dancer</button>
+          </form>
+        </div>
+      <% } %>
+    </div>
+    <div class="card">
+      <h3>Add a dancer</h3>
+      <form class="form" method="post" action="/portal/dancers">
+        <div class="field"><label for="d-name">Name *</label><input id="d-name" name="name" required></div>
+        <div class="field"><label for="d-year">Birth year *</label><input id="d-year" type="number" name="birth_year" min="1941" max="<%= new Date().getFullYear() %>" required></div>
+        <div class="field"><label for="d-notes">Notes for instructors</label><input id="d-notes" name="notes" placeholder="allergies, prior training…"></div>
+        <button class="btn" type="submit">Add dancer</button>
+      </form>
+    </div>
+  </div>
+</div></section>
+<%- include('../partials/footer') %>

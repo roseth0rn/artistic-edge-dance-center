@@ -1,0 +1,10 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: post.kicker + ' · ' + post.date, heroTitle: post.title, lede: null }) %>
+<section class="section section--tight">
+  <div class="wrap" style="max-width:720px">
+    <% for (const para of post.body) { %><p><%= para %></p><% } %>
+    <p style="margin-top:2rem"><a class="btn btn--ghost" href="/news">All newsletters</a></p>
+  </div>
+</section>
+<%- include('partials/footer') %>

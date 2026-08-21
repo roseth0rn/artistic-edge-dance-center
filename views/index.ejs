@@ -1,0 +1,98 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="hero on-stage">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Season <%= STUDIO.season %> · now enrolling</p>
+      <h1>Dance with an <em>edge.</em></h1>
+      <p class="hero__tagline">Ballet, jazz, tap, hip hop, contemporary, and acro for ages 2 to adult — taught by working artists at <%= STUDIO.address %> in <%= STUDIO.city %>.</p>
+      <div class="hero__actions">
+        <a class="btn" href="/trial">Book a free trial class</a>
+        <a class="btn btn--ghost" href="/schedule">See the weekly schedule</a>
+      </div>
+      <div class="hero__meta">
+        <div><strong><%= classes.length %></strong><span>weekly classes</span></div>
+        <div><strong>3</strong><span>studios in one building</span></div>
+        <div><strong>Ages 2–adult</strong><span>every level welcome</span></div>
+      </div>
+    </div>
+    <div class="hero__art">
+      <img src="/images/logo-transparent.svg" alt="Artistic Edge Dance Center dancer mark">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Find your class</p>
+      <h2>Start with your dancer's <em>age</em></h2>
+      <p class="muted">Placement is by skill, not by grade in school — but age is the right first filter.</p>
+    </div>
+    <div class="grid grid--4">
+      <% for (const band of ageBands) { %>
+        <a class="card card--flat" href="/classes?ages=<%= band.id %>" style="text-decoration:none">
+          <h3><%= band.label %></h3>
+          <p class="muted"><%= band.hint %></p>
+        </a>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section class="section on-stage">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">From the lobby</p>
+      <h2>What dance families <em>say</em></h2>
+    </div>
+    <div class="grid grid--3">
+      <% for (const t of testimonials.slice(0, 3)) { %>
+        <blockquote class="quote">
+          <p>“<%= t.quote.length > 190 ? t.quote.slice(0, 187) + '…' : t.quote %>”</p>
+          <footer><%= t.name %> · <%= t.context %></footer>
+        </blockquote>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Studio news</p>
+      <h2>On the <em>callboard</em></h2>
+    </div>
+    <div class="grid grid--3">
+      <% for (const post of news) { %>
+        <article class="card">
+          <img class="card__img" src="<%= post.image %>" alt="">
+          <p class="badge"><%= post.kicker %> · <%= post.date %></p>
+          <h3><a href="/news/<%= post.slug %>"><%= post.title %></a></h3>
+          <p class="muted"><%= post.excerpt %></p>
+        </article>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Coming up</p>
+      <h2>Season <em>dates</em></h2>
+    </div>
+    <ul class="timeline">
+      <% for (const e of events) { %>
+        <li>
+          <time><%= e.date %></time>
+          <div><strong><%= e.title %></strong> <span class="badge"><%= e.category %></span><br><span class="muted"><%= e.detail %></span></div>
+        </li>
+      <% } %>
+    </ul>
+    <p style="margin-top:1.2rem"><a class="btn btn--ghost" href="/calendar">Full season calendar</a></p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

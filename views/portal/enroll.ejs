@@ -1,0 +1,36 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<%- include('../partials/page-hero', { eyebrow: 'Filtered to your dancer\'s age', heroTitle: 'Enroll in <em>classes</em>', lede: null }) %>
+<section class="section section--tight"><div class="wrap">
+  <%- include('../partials/portal-nav') %>
+  <% if (!dancers.length) { %>
+    <p class="muted">Add a dancer first — enrollment is age-filtered. <a href="/portal/dancers">Add a dancer</a>.</p>
+  <% } else { %>
+    <p class="meta-row" style="gap:0.5rem">
+      <% for (const d of dancers) { %>
+        <a class="badge <%= selected && selected.id === d.id ? 'badge--wine' : '' %>" style="text-decoration:none" href="/portal/enroll?dancer=<%= d.id %>"><%= d.name %></a>
+      <% } %>
+    </p>
+    <div class="grid grid--3" style="margin-top:1.2rem">
+      <% for (const c of options) { %>
+        <article class="card card--flat">
+          <p><span class="badge badge--wine"><%= c.style %></span> <span class="badge"><%= c.level %></span></p>
+          <h3><%= c.name %></h3>
+          <div class="meta-row"><span><%= c.day %> <%= c.time %></span><span>Ages <%= c.ages %></span><span>Studio <%= c.studio %></span></div>
+          <% if (c.already) { %>
+            <p class="badge">Enrolled</p>
+          <% } else if (!c.open) { %>
+            <p class="badge badge--full">Waitlist — call the office</p>
+          <% } else { %>
+            <form method="post" action="/portal/enroll">
+              <input type="hidden" name="dancer_id" value="<%= selected.id %>">
+              <input type="hidden" name="class_slug" value="<%= c.slug %>">
+              <button class="btn btn--small" type="submit">Enroll <%= selected.name.split(' ')[0] %></button>
+            </form>
+          <% } %>
+        </article>
+      <% } %>
+    </div>
+  <% } %>
+</div></section>
+<%- include('../partials/footer') %>

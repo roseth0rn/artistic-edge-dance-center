@@ -1,0 +1,17 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'The people in the room', heroTitle: 'Faculty & <em>staff</em>', lede: 'Working artists, studio alumnae, and the front desk that holds it all together.' }) %>
+<section class="section section--tight">
+  <div class="wrap grid grid--2">
+    <% for (const f of faculty) { %>
+      <article class="card card--flat">
+        <p class="badge badge--wine"><%= f.role %></p>
+        <h3><%= f.name %></h3>
+        <p class="muted" style="font-size:0.83rem"><%= f.highlight %></p>
+        <p class="muted"><%= f.bio %></p>
+        <p class="meta-row"><% for (const s of f.styles) { %><span class="badge"><%= s %></span><% } %></p>
+      </article>
+    <% } %>
+  </div>
+</section>
+<%- include('partials/footer') %>

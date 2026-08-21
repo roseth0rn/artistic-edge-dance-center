@@ -1,0 +1,20 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Artistic Edge Dance Company', heroTitle: 'The <em>gem</em> tracks', lede: 'Competitive teams for ages 4.5–18 across jazz, tap, contemporary, ballet, and production. Auditions each May — dancers audition at their current age, and placement is by skill and performance quality.' }) %>
+<section class="section section--tight">
+  <div class="wrap grid grid--4">
+    <% for (const t of tracks) { %>
+      <article class="card card--flat">
+        <p class="badge <%= t.kind === 'Elite' ? 'badge--wine' : '' %>"><%= t.kind %></p>
+        <h3><%= t.name %></h3>
+        <p class="muted" style="font-size:0.85rem"><%= t.ages %> · <%= t.commitment %></p>
+        <p class="muted"><%= t.summary %></p>
+      </article>
+    <% } %>
+  </div>
+  <div class="wrap" style="margin-top:2.5rem">
+    <h2>What company <em>asks</em> of a family</h2>
+    <p style="max-width:65ch">Four mandatory regionals each spring, Nationals in the summer, weekly rehearsal on top of required technique classes, and a summer intensive the year of acceptance. It is a real commitment — and the fastest-growing dancers in the building. Fees are on the <a href="/tuition">tuition page</a>; questions go to <a href="<%= STUDIO.emailHref %>"><%= STUDIO.email %></a>.</p>
+  </div>
+</section>
+<%- include('partials/footer') %>

@@ -1,0 +1,24 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Since 2004 in the Upstate', heroTitle: 'A studio built on <em>corrections and care</em>', lede: 'Three studios at ' + STUDIO.address + ', lobby TVs for recreational classes, and a faculty of working artists.' }) %>
+<section class="section section--tight">
+  <div class="wrap grid grid--2">
+    <div>
+      <h2>Our <em>approach</em></h2>
+      <p>Dance does not progress like school. Dancers often spend a couple of years in a level mastering skills before moving up — and it builds more confidence to be moved up than moved down. Corrections are the gold of class: limited time spent noticing one thing that can change a dancer or prevent injury.</p>
+      <p>Every dancer may perform in the annual Spring Performance. For more stage time we produce <a href="/nutcracker">Nutcracker Sweets</a> each November and field the <a href="/company">Artistic Edge Dance Company</a>.</p>
+      <h3>Visit us</h3>
+      <p class="muted"><%= STUDIO.address %>, <%= STUDIO.cityStateZip %><br>Front desk: <%= STUDIO.hours.frontDesk %><br>Summer office: <%= STUDIO.hours.summerOffice %></p>
+      <p><a class="btn btn--ghost" href="<%= STUDIO.maps %>">Directions</a></p>
+    </div>
+    <div>
+      <% for (const t of testimonials) { %>
+        <blockquote class="quote" style="margin:0 0 1.4rem">
+          <p>“<%= t.quote.length > 170 ? t.quote.slice(0, 167) + '…' : t.quote %>”</p>
+          <footer><%= t.name %> · <%= t.context %></footer>
+        </blockquote>
+      <% } %>
+    </div>
+  </div>
+</section>
+<%- include('partials/footer') %>

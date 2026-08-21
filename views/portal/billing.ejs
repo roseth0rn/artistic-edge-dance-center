@@ -1,0 +1,32 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<%- include('../partials/page-hero', { eyebrow: 'Season installments', heroTitle: 'Tuition & <em>billing</em>', lede: 'Estimates use the published tuition table. Payments are handled by the office — this page is your record.' }) %>
+<section class="section section--tight"><div class="wrap">
+  <%- include('../partials/portal-nav') %>
+  <div class="grid grid--2">
+    <div>
+      <h2>Monthly <em>estimate</em></h2>
+      <div class="table-wrap"><table>
+        <tr><th>Dancer</th><th>Classes / week</th><th class="num">Monthly</th></tr>
+        <% for (const r of weeklyByDancer) { %>
+          <tr><td><%= r.dancer.name %></td><td><%= r.count %></td><td class="num"><%= r.row ? '$' + r.row.monthly : '—' %></td></tr>
+        <% } %>
+        <tr><td><strong>Household total</strong></td><td></td><td class="num"><strong>$<%= monthly %></strong></td></tr>
+      </table></div>
+      <p class="form-note" style="margin-top:0.8rem">Costume and performance fees are separate; company fees are billed by the office. Semester and annual plans include a discount — ask Miss Kathy.</p>
+    </div>
+    <div>
+      <h2>Payment <em>history</em></h2>
+      <% if (!payments.length) { %><p class="muted">No payments recorded yet. Receipts appear here once the office posts them.</p><% } %>
+      <% if (payments.length) { %>
+      <div class="table-wrap"><table>
+        <tr><th>Date</th><th>Method</th><th>Note</th><th class="num">Amount</th></tr>
+        <% for (const p of payments) { %>
+          <tr><td><%= new Date(p.created_at).toISOString().slice(0,10) %></td><td><%= p.method %></td><td><%= p.note || '' %></td><td class="num">$<%= (p.amount_cents/100).toFixed(2) %></td></tr>
+        <% } %>
+      </table></div>
+      <% } %>
+    </div>
+  </div>
+</div></section>
+<%- include('../partials/footer') %>

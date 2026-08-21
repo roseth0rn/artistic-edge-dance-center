@@ -1,0 +1,28 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Camps & July classes', heroTitle: 'Summer at <em>AEDC</em>', lede: 'Themed camps in June, drop-in-style Tuesday classes in July. No trial classes in summer sessions.' }) %>
+<section class="section section--tight">
+  <div class="wrap">
+    <h2>June <em>camps</em></h2>
+    <div class="grid grid--2" style="margin-top:1rem">
+      <% for (const camp of summer.camps) { %>
+        <article class="card">
+          <p class="badge badge--wine">Ages <%= camp.ages %> · $<%= camp.price %></p>
+          <h3><%= camp.name %></h3>
+          <p class="muted"><%= camp.dates %></p>
+          <p class="muted"><%= camp.detail %></p>
+        </article>
+      <% } %>
+    </div>
+    <h2 style="margin-top:2.5rem">July <em>classes</em></h2>
+    <p class="muted"><%= summer.july.dates %> · <% for (const p of summer.july.pricing) { %><%= p.n %> class<%= p.n > 1 ? 'es' : '' %>: $<%= p.price %><%= p.n < 3 ? ' · ' : '' %><% } %></p>
+    <div class="table-wrap"><table>
+      <tr><th>Class</th><th>Ages</th><th class="num">Time</th></tr>
+      <% for (const c of summer.july.classes) { %>
+        <tr><td><%= c.name %></td><td><%= c.ages %></td><td class="num"><%= c.time %></td></tr>
+      <% } %>
+    </table></div>
+    <p style="margin-top:1.5rem"><a class="btn" href="/contact">Register through the office</a></p>
+  </div>
+</section>
+<%- include('partials/footer') %>

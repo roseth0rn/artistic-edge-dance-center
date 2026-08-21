@@ -1,0 +1,24 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<section class="page-hero on-stage" style="border-bottom:0">
+  <div class="wrap">
+    <p class="eyebrow">Every November · directed by Madison Kellough</p>
+    <h1>Nutcracker <em>Sweets</em></h1>
+    <p style="max-width:60ch">Our studio production of the holiday classic. Dancers must be enrolled in a ballet class at AEDC to perform. Audition fee $10; costume rental and performance fee $100 if cast.</p>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="wrap">
+    <h2>This year's <em>dates</em></h2>
+    <ul class="timeline">
+      <% for (const e of events) { %>
+        <li>
+          <time><%= e.date %></time>
+          <div><strong><%= e.title %></strong><% if (e.time) { %> <span class="muted">· <%= e.time %></span><% } %><br><span class="muted"><%= e.detail %></span></div>
+        </li>
+      <% } %>
+    </ul>
+    <p style="margin-top:1.5rem"><a class="btn" href="/classes?style=Ballet">Enroll in ballet to be eligible</a></p>
+  </div>
+</section>
+<%- include('partials/footer') %>

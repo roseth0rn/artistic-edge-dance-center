@@ -1,0 +1,39 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: klass.style + ' · ' + klass.level, heroTitle: klass.name, lede: klass.blurb }) %>
+<section class="section section--tight">
+  <div class="wrap grid grid--2">
+    <div>
+      <h2>About this <em>class</em></h2>
+      <p><%= klass.description %></p>
+      <h3>What to wear</h3>
+      <p class="muted"><%= klass.attire %></p>
+      <% if (klass.recital) { %><p class="badge">Performs in the Spring Recital</p><% } %>
+      <% if (klass.companyRequired) { %><p class="badge badge--wine">Required for Company dancers</p><% } %>
+    </div>
+    <div class="card">
+      <h3>Details</h3>
+      <table>
+        <tr><td>Ages</td><td class="num"><%= klass.ages %></td></tr>
+        <tr><td>Meets</td><td class="num"><%= klass.day %> · <%= klass.time %></td></tr>
+        <tr><td>Length</td><td class="num"><%= klass.minutes %> minutes</td></tr>
+        <tr><td>Room</td><td class="num">Studio <%= klass.studio %></td></tr>
+        <tr><td>Instructor</td><td class="num"><%= klass.instructor %></td></tr>
+        <tr><td>Spots left</td><td class="num"><%= spotsLeft(klass) > 0 ? spotsLeft(klass) : 'Waitlist' %></td></tr>
+      </table>
+      <p style="margin-top:1rem">
+        <% if (spotsLeft(klass) > 0) { %><a class="btn" href="/trial?class=<%= klass.slug %>">Try this class free</a>
+        <% } else { %><a class="btn btn--ghost" href="/contact">Join the waitlist</a><% } %>
+      </p>
+    </div>
+  </div>
+  <% if (related.length) { %>
+  <div class="wrap" style="margin-top:3rem">
+    <h2>More <em><%= klass.style %></em></h2>
+    <div class="grid grid--3" style="margin-top:1rem">
+      <% for (const r of related) { %><%- include('partials/class-card', { klass: r, spotsLeft }) %><% } %>
+    </div>
+  </div>
+  <% } %>
+</section>
+<%- include('partials/footer') %>

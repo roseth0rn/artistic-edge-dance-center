@@ -1,0 +1,41 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Miss Kathy answers ' + STUDIO.hours.frontDesk, heroTitle: 'Contact the <em>studio</em>', lede: 'Placement questions, registration, waitlists — or just say hello.' }) %>
+<section class="section section--tight">
+  <div class="wrap grid grid--2">
+    <div>
+      <% if (sent) { %><div class="alert alert--ok">Message sent — the office will reply by email, usually within one business day.</div><% } %>
+      <% if (error) { %><div class="alert alert--err"><%= error %></div><% } %>
+      <form class="form" method="post" action="/contact">
+        <div class="field-row">
+          <div class="field"><label for="c-name">Your name *</label><input id="c-name" name="name" required value="<%= form.name || '' %>"></div>
+          <div class="field"><label for="c-email">Email *</label><input id="c-email" type="email" name="email" required value="<%= form.email || '' %>"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="c-phone">Phone</label><input id="c-phone" name="phone" value="<%= form.phone || '' %>"></div>
+          <div class="field"><label for="c-interest">I'm asking about</label>
+            <select id="c-interest" name="interest">
+              <% for (const opt of ['Class placement','Registration','Company','Nutcracker Sweets','Summer','Something else']) { %>
+                <option <%= form.interest === opt ? 'selected' : '' %>><%= opt %></option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="c-dname">Dancer's name</label><input id="c-dname" name="dancer_name" value="<%= form.dancer_name || '' %>"></div>
+          <div class="field"><label for="c-dage">Dancer's age</label><input id="c-dage" name="dancer_age" value="<%= form.dancer_age || '' %>"></div>
+        </div>
+        <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message"><%= form.message || '' %></textarea></div>
+        <button class="btn" type="submit">Send message</button>
+      </form>
+    </div>
+    <div class="card">
+      <h3>Reach us directly</h3>
+      <p><a href="<%= STUDIO.phoneHref %>"><%= STUDIO.phone %></a><br><a href="<%= STUDIO.emailHref %>"><%= STUDIO.email %></a></p>
+      <p class="muted"><%= STUDIO.address %><br><%= STUDIO.cityStateZip %></p>
+      <p class="muted">Front desk: <%= STUDIO.hours.frontDesk %><br>Summer office: <%= STUDIO.hours.summerOffice %></p>
+      <p><a class="btn btn--ghost" href="<%= STUDIO.maps %>">Open in Maps</a></p>
+    </div>
+  </div>
+</section>
+<%- include('partials/footer') %>

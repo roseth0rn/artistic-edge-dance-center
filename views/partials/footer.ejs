@@ -1,0 +1,45 @@
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand">Artistic Edge <em>Dance Center</em></p>
+      <p class="muted"><%= STUDIO.tagline %></p>
+      <address class="muted">
+        <a href="<%= STUDIO.maps %>"><%= STUDIO.address %>, <%= STUDIO.cityStateZip %></a><br>
+        <a href="<%= STUDIO.phoneHref %>"><%= STUDIO.phone %></a> ·
+        <a href="<%= STUDIO.emailHref %>"><%= STUDIO.email %></a>
+      </address>
+      <p class="muted">Front desk: <%= STUDIO.hours.frontDesk %></p>
+    </div>
+    <nav aria-label="Footer">
+      <ul class="footer-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/nutcracker">Nutcracker Sweets</a></li>
+        <li><a href="/summer">Summer</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/policies">Policies</a></li>
+        <li><a href="/careers">Teach with us</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div>
+      <p class="footer-heading">Monthly newsletter</p>
+      <p class="muted">Closures, recital notes, and registration windows — email only, never paperwork sent home.</p>
+      <form class="newsletter" method="post" action="/newsletter">
+        <label class="visually-hidden" for="nl-email">Email address</label>
+        <input id="nl-email" type="email" name="email" placeholder="you@example.com" required>
+        <button class="btn btn--small" type="submit">Subscribe</button>
+      </form>
+      <p class="muted social">
+        <a href="<%= STUDIO.instagram %>">Instagram</a> · <a href="<%= STUDIO.facebook %>">Facebook</a>
+      </p>
+    </div>
+  </div>
+  <div class="wrap footer-legal muted">
+    <span>© <%= new Date().getFullYear() %> <%= STUDIO.name %> · Season <%= STUDIO.season %></span>
+    <span><a href="/healthz">status</a></span>
+  </div>
+</footer>
+<script src="/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<nav class="portal-nav" aria-label="Portal">
+  <% const plinks = [["/portal","Overview"],["/portal/dancers","My dancers"],["/portal/enroll","Enroll"],["/portal/calendar","Calendar"],["/portal/billing","Billing"]]; %>
+  <% for (const [href, label] of plinks) { %>
+    <a href="<%= href %>" <%- path === href ? 'aria-current="page"' : '' %>><%= label %></a>
+  <% } %>
+  <form class="inline-form" method="post" action="/logout"><button class="link-btn" type="submit">Sign out</button></form>
+</nav>

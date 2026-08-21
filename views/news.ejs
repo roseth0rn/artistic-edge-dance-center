@@ -1,0 +1,16 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Email only — never paperwork home', heroTitle: 'News & <em>newsletters</em>', lede: 'Everything important lands in the parent inbox and lives here for reference.' }) %>
+<section class="section section--tight">
+  <div class="wrap grid grid--3">
+    <% for (const post of posts) { %>
+      <article class="card">
+        <img class="card__img" src="<%= post.image %>" alt="">
+        <p class="badge"><%= post.kicker %> · <%= post.date %></p>
+        <h3><a href="/news/<%= post.slug %>"><%= post.title %></a></h3>
+        <p class="muted"><%= post.excerpt %></p>
+      </article>
+    <% } %>
+  </div>
+</section>
+<%- include('partials/footer') %>

@@ -1,0 +1,49 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<%- include('../partials/page-hero', { eyebrow: 'Season ' + STUDIO.season, heroTitle: 'Welcome back, <em>' + user.name.split(' ')[0] + '</em>', lede: null }) %>
+<section class="section section--tight"><div class="wrap">
+  <%- include('../partials/portal-nav') %>
+
+  <% if (!waiver) { %>
+    <div class="card" style="border-color:var(--wine);margin-bottom:1.5rem">
+      <h3>Season waiver needed</h3>
+      <p class="muted">Dancers can't take the floor until the season waiver is signed. Type your full legal name to sign electronically.</p>
+      <form class="form" method="post" action="/portal/waiver" style="grid-template-columns:1fr auto;display:grid;gap:0.6rem;align-items:end">
+        <div class="field"><label for="w-name">Full legal name</label><input id="w-name" name="signer_name" required></div>
+        <button class="btn" type="submit">Sign waiver</button>
+      </form>
+    </div>
+  <% } %>
+
+  <div class="grid grid--3">
+    <div class="card card--flat"><p class="muted">Dancers on account</p><p class="stat"><%= dancers.length %></p><a href="/portal/dancers">Manage dancers</a></div>
+    <div class="card card--flat"><p class="muted">Active enrollments</p><p class="stat"><%= enrollments.length %></p><a href="/portal/enroll">Add a class</a></div>
+    <div class="card card--flat"><p class="muted">Estimated monthly tuition</p><p class="stat">$<%= monthly %></p><a href="/portal/billing">See the math</a></div>
+  </div>
+
+  <h2 style="margin-top:2.2rem">This week's <em>classes</em></h2>
+  <% if (!enrollments.length) { %>
+    <p class="muted">No enrollments yet. <a href="/portal/enroll">Browse classes by your dancer's age</a> — or <a href="/trial">book a free trial</a> first.</p>
+  <% } else { %>
+    <div class="table-wrap"><table>
+      <tr><th>Dancer</th><th>Class</th><th>Meets</th><th>Studio</th><th></th></tr>
+      <% for (const e of enrollments) { if (!e.klass) continue; %>
+        <tr>
+          <td><%= e.dancer ? e.dancer.name : '—' %></td>
+          <td><a href="/classes/<%= e.klass.slug %>"><%= e.klass.name %></a></td>
+          <td><%= e.klass.day %> <%= e.klass.time %></td>
+          <td><%= e.klass.studio %></td>
+          <td class="num"><form class="inline-form" method="post" action="/portal/enroll/<%= e.id %>/drop"><button class="link-btn" type="submit">Drop</button></form></td>
+        </tr>
+      <% } %>
+    </table></div>
+  <% } %>
+
+  <h2 style="margin-top:2.2rem">Coming <em>up</em></h2>
+  <ul class="timeline">
+    <% for (const e of upcoming) { %>
+      <li><time><%= e.date %></time><div><strong><%= e.title %></strong><br><span class="muted"><%= e.detail %></span></div></li>
+    <% } %>
+  </ul>
+</div></section>
+<%- include('../partials/footer') %>

@@ -1,0 +1,16 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'The fine print, kindly', heroTitle: 'Studio <em>policies</em>', lede: null }) %>
+<section class="section section--tight">
+  <div class="wrap" style="max-width:720px">
+    <h2>Tuition & <em>fees</em></h2>
+    <p>Monthly tuition is a season installment for <%= STUDIO.seasonRange %> — we do not prorate short months or add for five-week months. All tuition, costume, and performance fees are non-refundable. Credits for unused advanced payment plans are considered only for documented injury and are held for one year.</p>
+    <h2>Waivers & <em>safety</em></h2>
+    <p>Signed waivers in the parent portal are required before a dancer takes the floor. Water only in the studios. Please pick up promptly — staff cannot supervise after class, and consistent late pickups are billed $20 per 15-minute interval.</p>
+    <h2>Closures & <em>makeups</em></h2>
+    <p>We close for major holidays and generally align with Greenville County Schools, though not for most single-day holidays. Makeup classes are not offered for scheduled closings; missed classes may request a makeup through the portal. Weather closures post by email, portal, and Facebook.</p>
+    <h2>Communication</h2>
+    <p>All important information is emailed to the parent address on the account — we do not send paperwork home with children. Add <a href="<%= STUDIO.emailHref %>"><%= STUDIO.email %></a> to your safe senders.</p>
+  </div>
+</section>
+<%- include('partials/footer') %>

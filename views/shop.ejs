@@ -1,0 +1,16 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'Pick up at the front desk', heroTitle: 'Studio <em>shop</em>', lede: 'Order with Miss Kathy at the desk or by email — sizes run true. Class shoes and attire come from ' + STUDIO.attireShopName + ' on Laurens Road.' }) %>
+<section class="section section--tight">
+  <div class="wrap grid grid--3">
+    <% for (const item of items) { %>
+      <article class="card">
+        <img class="card__img" src="<%= item.image %>" alt="">
+        <p class="badge"><%= item.category %></p>
+        <h3><%= item.name %> · $<%= item.price %></h3>
+        <p class="muted"><%= item.blurb %></p>
+      </article>
+    <% } %>
+  </div>
+</section>
+<%- include('partials/footer') %>

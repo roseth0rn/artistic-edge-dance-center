@@ -1,0 +1,22 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+<%- include('partials/page-hero', { eyebrow: 'The callboard', heroTitle: 'Weekly <em>schedule</em>', lede: 'Every class, pinned by day. Tap any card for attire, instructor, and trial booking.' }) %>
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="callboard">
+      <% for (const col of byDay) { %>
+        <div class="callboard__day">
+          <div class="callboard__title"><%= col.day %></div>
+          <% if (!col.classes.length) { %><p class="muted" style="font-size:0.8rem">Studios dark</p><% } %>
+          <% for (const c of col.classes) { %>
+            <a class="callboard__item <%= spotsLeft(c) === 0 ? 'callboard__item--full' : '' %>" href="/classes/<%= c.slug %>">
+              <strong><%= c.time %> · <%= c.name %></strong>
+              <span>Ages <%= c.ages %> · Studio <%= c.studio %><%= spotsLeft(c) === 0 ? ' · waitlist' : '' %></span>
+            </a>
+          <% } %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</section>
+<%- include('partials/footer') %>

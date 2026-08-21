@@ -1,0 +1,43 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+<%- include('../partials/page-hero', { eyebrow: 'Your household', heroTitle: 'My <em>calendar</em>', lede: null }) %>
+<section class="section section--tight"><div class="wrap">
+  <%- include('../partials/portal-nav') %>
+  <div class="grid grid--2">
+    <div>
+      <h2>Weekly <em>classes</em></h2>
+      <% if (!mine.length) { %><p class="muted">No enrollments yet.</p><% } %>
+      <ul class="timeline">
+        <% for (const e of mine) { %>
+          <li><time><%= e.klass.day %> <%= e.klass.time %></time>
+          <div><strong><%= e.klass.name %></strong><br><span class="muted"><%= e.dancer ? e.dancer.name : '' %> · Studio <%= e.klass.studio %> · <%= e.klass.instructor %></span></div></li>
+        <% } %>
+      </ul>
+      <h2 style="margin-top:2rem">Season <em>events</em></h2>
+      <ul class="timeline">
+        <% for (const e of events) { %>
+          <li><time><%= e.date %></time><div><strong><%= e.title %></strong> <span class="badge"><%= e.category %></span><br><span class="muted"><%= e.detail %></span></div></li>
+        <% } %>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Request a makeup class</h3>
+      <p class="form-note">Makeups apply to missed classes only — not scheduled closings.</p>
+      <form class="form" method="post" action="/portal/makeup">
+        <div class="field"><label for="m-dancer">Dancer</label>
+          <select id="m-dancer" name="dancer_id">
+            <option value="">—</option>
+            <% const seen = new Set(); for (const e of mine) { if (!e.dancer || seen.has(e.dancer.id)) continue; seen.add(e.dancer.id); %>
+              <option value="<%= e.dancer.id %>"><%= e.dancer.name %></option>
+            <% } %>
+          </select>
+        </div>
+        <div class="field"><label for="m-missed">Class missed</label><input id="m-missed" name="missed_class" placeholder="e.g. Beginner Ballet, Mon 4:30"></div>
+        <div class="field"><label for="m-pref">Preferred makeup</label><input id="m-pref" name="preferred_makeup" placeholder="a class at the same level"></div>
+        <div class="field"><label for="m-why">Reason</label><input id="m-why" name="reason"></div>
+        <button class="btn" type="submit">Send request</button>
+      </form>
+    </div>
+  </div>
+</div></section>
+<%- include('../partials/footer') %>
