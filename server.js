@@ -7,7 +7,8 @@ const compression = require("compression");
 const PgSession = require("connect-pg-simple")(session);
 
 const { pool, migrate } = require("./src/db");
-const { STUDIO } = require("./src/data/studio");
+const { STUDIO, ANNOUNCEMENT } = require("./src/data/studio");
+const { photo, classPhoto, PHOTOS } = require("./src/data/photos");
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
@@ -50,6 +51,9 @@ app.use(
 // Locals available to every template
 app.use((req, res, next) => {
   res.locals.STUDIO = STUDIO;
+  res.locals.ANNOUNCEMENT = ANNOUNCEMENT;
+  res.locals.photo = photo;
+  res.locals.classPhoto = classPhoto;
   res.locals.user = req.session.user || null;
   res.locals.path = req.path;
   res.locals.flash = req.session.flash || null;

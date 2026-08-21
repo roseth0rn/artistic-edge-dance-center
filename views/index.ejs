@@ -1,24 +1,22 @@
 <%- include('partials/head') %>
 <%- include('partials/header') %>
 
-<section class="hero on-stage">
+<section class="photo-hero">
+  <% const hero = photo('company'); %>
+  <img class="photo-hero__img" src="<%= hero.src %>" alt="<%= hero.alt %>">
+  <div class="photo-hero__scrim"></div>
   <div class="wrap">
-    <div>
-      <p class="eyebrow">Season <%= STUDIO.season %> · now enrolling</p>
-      <h1>Dance with an <em>edge.</em></h1>
-      <p class="hero__tagline">Ballet, jazz, tap, hip hop, contemporary, and acro for ages 2 to adult — taught by working artists at <%= STUDIO.address %> in <%= STUDIO.city %>.</p>
-      <div class="hero__actions">
-        <a class="btn" href="/trial">Book a free trial class</a>
-        <a class="btn btn--ghost" href="/schedule">See the weekly schedule</a>
-      </div>
-      <div class="hero__meta">
-        <div><strong><%= classes.length %></strong><span>weekly classes</span></div>
-        <div><strong>3</strong><span>studios in one building</span></div>
-        <div><strong>Ages 2–adult</strong><span>every level welcome</span></div>
-      </div>
+    <p class="eyebrow">Season <%= STUDIO.season %> · now enrolling</p>
+    <h1>Dance with an <em>edge.</em></h1>
+    <p class="hero__tagline">Ballet, jazz, tap, hip hop, contemporary, and acro for ages 2 to adult — taught by working artists at <%= STUDIO.address %> in <%= STUDIO.city %>.</p>
+    <div class="hero__actions">
+      <a class="btn" href="/trial">Book a free trial class</a>
+      <a class="btn btn--ghost" href="/schedule">Weekly schedule</a>
     </div>
-    <div class="hero__art">
-      <img src="/images/logo-transparent.svg" alt="Artistic Edge Dance Center dancer mark">
+    <div class="hero__meta">
+      <div><strong><%= classes.length %></strong><span>weekly classes</span></div>
+      <div><strong>3</strong><span>studios, one building</span></div>
+      <div><strong>Ages 2–adult</strong><span>every level welcome</span></div>
     </div>
   </div>
 </section>
@@ -32,16 +30,31 @@
     </div>
     <div class="grid grid--4">
       <% for (const band of ageBands) { %>
-        <a class="card card--flat" href="/classes?ages=<%= band.id %>" style="text-decoration:none">
+        <a class="card" href="/classes?ages=<%= band.id %>" style="text-decoration:none">
           <h3><%= band.label %></h3>
-          <p class="muted"><%= band.hint %></p>
+          <p class="muted" style="margin:0"><%= band.hint %></p>
         </a>
       <% } %>
     </div>
   </div>
 </section>
 
-<section class="section on-stage">
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">From the studio floor</p>
+      <h2>This is what <em>edge</em> looks like</h2>
+    </div>
+    <div class="gallery-strip">
+      <% for (const key of ['ballet','acro','preschool','contemporary2']) { const ph = photo(key); %>
+        <img src="<%= ph.src %>" alt="<%= ph.alt %>" loading="lazy">
+      <% } %>
+    </div>
+    <p style="margin-top:2rem"><a class="btn btn--ghost" href="<%= STUDIO.instagram %>">More on Instagram @danceaedc</a></p>
+  </div>
+</section>
+
+<section class="section on-ink">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">From the lobby</p>
@@ -65,14 +78,15 @@
       <h2>On the <em>callboard</em></h2>
     </div>
     <div class="grid grid--3">
-      <% for (const post of news) { %>
+      <% const newsPhotos = ['nutcracker2','recital','candid']; %>
+      <% news.forEach((post, i) => { const np = photo(newsPhotos[i]) %>
         <article class="card">
-          <img class="card__img" src="<%= post.image %>" alt="">
+          <img class="card__img" src="<%= np ? np.src : post.image %>" alt="" loading="lazy">
           <p class="badge"><%= post.kicker %> · <%= post.date %></p>
           <h3><a href="/news/<%= post.slug %>"><%= post.title %></a></h3>
           <p class="muted"><%= post.excerpt %></p>
         </article>
-      <% } %>
+      <% }) %>
     </div>
   </div>
 </section>
@@ -92,6 +106,18 @@
       <% } %>
     </ul>
     <p style="margin-top:1.2rem"><a class="btn btn--ghost" href="/calendar">Full season calendar</a></p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="ig-card">
+      <div>
+        <h3>Follow the studio</h3>
+        <p>Class moments, recital countdowns, and closure alerts land on Instagram first.</p>
+      </div>
+      <a class="btn" href="<%= STUDIO.instagram %>">@danceaedc</a>
+    </div>
   </div>
 </section>
 

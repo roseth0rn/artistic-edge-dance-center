@@ -1,12 +1,6 @@
 <%- include('partials/head') %>
 <%- include('partials/header') %>
-<section class="page-hero on-stage" style="border-bottom:0">
-  <div class="wrap">
-    <p class="eyebrow">Every November · directed by Madison Kellough</p>
-    <h1>Nutcracker <em>Sweets</em></h1>
-    <p style="max-width:60ch">Our studio production of the holiday classic. Dancers must be enrolled in a ballet class at AEDC to perform. Audition fee $10; costume rental and performance fee $100 if cast.</p>
-  </div>
-</section>
+<%- include('partials/photo-hero', { ph: photo('nutcracker'), eyebrow: 'Every November · directed by Madison Kellough', heroTitle: 'Nutcracker <em>Sweets</em>', lede: 'Our studio production of the holiday classic. Dancers must be enrolled in a ballet class at AEDC to perform. Audition fee $10; costume rental and performance fee $100 if cast.' }) %>
 <section class="section section--tight">
   <div class="wrap">
     <h2>This year's <em>dates</em></h2>

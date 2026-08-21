@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" role="img" aria-label="Artistic Edge Dance Center">
+  <defs>
+    <path id="arc-top" d="M 40 150 A 100 100 0 0 1 240 150"/>
+    <path id="arc-bot" d="M 52 146 A 88 88 0 0 0 228 146"/>
+  </defs>
+  <circle cx="140" cy="140" r="140" fill="#c50000"/>
+  <circle cx="140" cy="140" r="118" fill="none" stroke="#ffffff" stroke-width="2"/>
+  <text fill="#ffffff" font-family="Figtree, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4.5">
+    <textPath href="#arc-top" startOffset="50%" text-anchor="middle">ARTISTIC EDGE</textPath>
+  </text>
+  <path fill="#ffffff" d="M140 88 L152.4 121.9 L188.5 122.8 L159.9 144.8 L170.2 179.4 L140 159.6 L109.8 179.4 L120.1 144.8 L91.5 122.8 L127.6 121.9 Z"/>
+  <text fill="#ffffff" font-family="Figtree, Arial, sans-serif" font-size="19" font-weight="600" letter-spacing="3.6">
+    <textPath href="#arc-bot" startOffset="50%" text-anchor="middle">DANCE CENTER</textPath>
+  </text>
+  <text x="140" y="216" fill="#ffffff" font-family="Figtree, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="2.6" text-anchor="middle">GREENVILLE · SC</text>
+</svg>

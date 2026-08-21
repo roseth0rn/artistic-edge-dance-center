@@ -12,6 +12,8 @@
       <% if (klass.companyRequired) { %><p class="badge badge--wine">Required for Company dancers</p><% } %>
     </div>
     <div class="card">
+      <% const cp = classPhoto(klass); %>
+      <% if (cp) { %><img class="card__img" src="<%= cp.src %>" alt="<%= cp.alt %>" loading="lazy"><% } %>
       <h3>Details</h3>
       <table>
         <tr><td>Ages</td><td class="num"><%= klass.ages %></td></tr>

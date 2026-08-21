@@ -1,7 +1,8 @@
 <article class="card">
-  <img class="card__img" src="<%= klass.image %>" alt="">
+  <% const cp = classPhoto(klass); %>
+  <img class="card__img" src="<%= cp ? cp.src : klass.image %>" alt="<%= cp ? cp.alt : '' %>" loading="lazy">
   <p>
-    <span class="badge badge--wine"><%= klass.style %></span>
+    <span class="badge badge--red"><%= klass.style %></span>
     <span class="badge"><%= klass.level %></span>
     <% if (spotsLeft(klass) === 0) { %><span class="badge badge--full">Waitlist</span><% } %>
   </p>

@@ -1,6 +1,6 @@
 <%- include('partials/head') %>
 <%- include('partials/header') %>
-<%- include('partials/page-hero', { eyebrow: 'Artistic Edge Dance Company', heroTitle: 'The <em>gem</em> tracks', lede: 'Competitive teams for ages 4.5–18 across jazz, tap, contemporary, ballet, and production. Auditions each May — dancers audition at their current age, and placement is by skill and performance quality.' }) %>
+<%- include('partials/photo-hero', { ph: photo('company'), eyebrow: 'Artistic Edge Dance Company', heroTitle: 'The <em>gem</em> tracks', lede: 'Competitive teams for ages 4.5–18 across jazz, tap, contemporary, ballet, and production. Auditions each May — dancers audition at their current age, and placement is by skill and performance quality.' }) %>
 <section class="section section--tight">
   <div class="wrap grid grid--4">
     <% for (const t of tracks) { %>

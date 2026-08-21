@@ -1,0 +1,9 @@
+<section class="page-hero page-hero--photo">
+  <img class="page-hero__img" src="<%= ph.src %>" alt="<%= ph.alt %>">
+  <div class="photo-hero__scrim"></div>
+  <div class="wrap" style="position:relative">
+    <% if (typeof eyebrow !== 'undefined' && eyebrow) { %><p class="eyebrow"><%= eyebrow %></p><% } %>
+    <h1><%- heroTitle %></h1>
+    <% if (typeof lede !== 'undefined' && lede) { %><p class="muted"><%= lede %></p><% } %>
+  </div>
+</section>

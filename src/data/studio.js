@@ -37,3 +37,10 @@ const AGE_BANDS = [
 
 
 module.exports = { STUDIO, AGE_BANDS };
+
+const ANNOUNCEMENT = {
+  text: "Fall registration and Nutcracker Sweets auditions are open!",
+  href: "/nutcracker",
+  linkText: "Audition info",
+};
+module.exports.ANNOUNCEMENT = ANNOUNCEMENT;

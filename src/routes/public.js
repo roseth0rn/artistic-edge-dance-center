@@ -167,4 +167,26 @@ router.post("/careers", async (req, res, next) => {
   } catch (err) { next(err); }
 });
 
+
+// ── SEO ───────────────────────────────────────────────────────────────────
+const BASE = "https://aedc.roseth0rn.com";
+
+router.get("/robots.txt", (req, res) => {
+  res.type("text/plain").send(`User-agent: *\nAllow: /\nDisallow: /portal\nSitemap: ${BASE}/sitemap.xml\n`);
+});
+
+router.get("/sitemap.xml", (req, res) => {
+  const staticPaths = ["/", "/classes", "/schedule", "/tuition", "/company", "/faculty",
+    "/about", "/calendar", "/news", "/nutcracker", "/summer", "/shop", "/faq",
+    "/policies", "/contact", "/trial", "/careers"];
+  const urls = [
+    ...staticPaths,
+    ...CLASSES.map((c) => `/classes/${c.slug}`),
+    ...NEWS.map((n) => `/news/${n.slug}`),
+  ];
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    urls.map((u) => `  <url><loc>${BASE}${u}</loc></url>`).join("\n") + `\n</urlset>`;
+  res.type("application/xml").send(xml);
+});
+
 module.exports = router;
